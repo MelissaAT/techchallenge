@@ -49,7 +49,21 @@ chat_completions_options = {
     "messages": [
         {"role": "system", "content": "You are a chat assistant"},
         {"role": "user", "content": "What is the total population of students in Puerto Rico?"}
-    ]
+    ],
+    "extra_body": {
+        "data_sources": [
+            {
+                "type": "azure_search",
+                "parameters": {
+                    "endpoint": search_endpoint,
+                    "index_name": search_index,
+                    "authentication": {
+                        "type": "system_assigned_managed_identity"
+                    }
+                }
+            }
+        ]
+    }
 }
 
 # Get chat completions

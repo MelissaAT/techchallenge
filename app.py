@@ -24,6 +24,10 @@ def about():
     print('about')
     return render_template('v1/about.html')
 
+@app.route("/chat", methods=['GET'])
+def chat():
+    print('chat')
+    return render_template('v1/chat.html')
 
 if __name__=="__main__":
     app.run(debug=True, threaded=True, port=9000)

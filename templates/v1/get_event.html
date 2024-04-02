@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Rafael O. Vega">
+
+    <title>myBooker</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+
+    
+
+<body class="bg-body-tertiary">
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+
+    <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark" aria-label="Offcanvas navbar large">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/home">myBooker</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar2" aria-controls="offcanvasNavbar2" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasNavbar2" aria-labelledby="offcanvasNavbar2Label">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasNavbar2Label">Offcanvas</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/home">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/about">About</a>
+              </li>
+              <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">Settings</a>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="/v1/get_contact">Contacts</a></li>
+                    <li><a class="dropdown-item" href="/v1/get_band">Bands</a></li>
+                    <li><a class="dropdown-item" href="/v1/get_event">Events</a></li>
+                    <li><a class="dropdown-item" href="/v1/get_event">Profile</a></li>
+                  </ul>
+                </li>
+            </ul>
+            <form class="d-flex mt-3 mt-lg-0" role="search">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-secondary" type="submit">Search</button>
+            </form>
+          </div>
+        </div>
+      </div>
+  </nav>
+    
+    <div class="container-md mt-5">
+      <main class="m-2 p-2">
+        <div class="d-flex justify-content-center">
+          <div class="col-md-6 m-2 p-2">
+
+            <div class="d-flex align-items-center justify-content-between w-100 p-3 my-3 text-white bg-success rounded shadow-sm">
+              <div class="d-flex w-70">
+                <h6 class="mb-0">myEvents</h6>
+              </div>
+              <div class="d-flex w-30">
+                <a href="/v1/add_event" class="btn btn-sm btn-outline-light mb-0 mx-1 px-1">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
+                    <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3z"></path>
+                  </svg>
+                  Add Event
+                </a>
+                <a href="/v1/add_event" class="btn btn-sm btn-outline-light mb-0 mx-1 px-1">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cloud-arrow-down-fill" viewBox="0 0 16 16">
+                    <path d="M8 2a5.53 5.53 0 0 0-3.594 1.342c-.766.66-1.321 1.52-1.464 2.383C1.266 6.095 0 7.555 0 9.318 0 11.366 1.708 13 3.781 13h8.906C14.502 13 16 11.57 16 9.773c0-1.636-1.242-2.969-2.834-3.194C12.923 3.999 10.69 2 8 2m2.354 6.854-2 2a.5.5 0 0 1-.708 0l-2-2a.5.5 0 1 1 .708-.708L7.5 9.293V5.5a.5.5 0 0 1 1 0v3.793l1.146-1.147a.5.5 0 0 1 .708.708"></path>
+                  </svg>
+                </a>
+              </div>
+            </div>
+            
+            <div class="mb-3 mt-0 pb-3 px-3 bg-body rounded shadow-sm w-100">
+              {% if events %}
+                {% for i in events %}
+                <div class="d-flex text-body-secondary pt-3 mx-4 mt-2">
+                  <div class="pb-1 mb-0 small lh-sm border-bottom w-100">
+                    <div class="d-flex justify-content-between mb-2">
+                      <strong class="text-light">{{i.title}}</strong>
+                      <strong class="text-light mx-2">{{i.date}}</strong>
+                      <strong class="text-light mx-2">{{i.start_time}}</strong>
+                    </div>
+
+                    <span class="d-flex justify-content-between mb-0">
+                      <p class="text-light mx-2">{{i.band.name}}</p>
+                      <p class="text-light mx-2">{{i.place}}</p>
+                      <p class="text-light mx-2">${{i.payment}}</p>
+                    </span>
+                  </div>
+                </div>
+                {% endfor %}
+              {% else %}
+                <div class="d-flex text-body-secondary pt-3 mx-4 mt-2">
+                  <div class="pb-1 mb-0 small lh-sm border-bottom w-100">
+                    <p>No events yet, add one.</p>
+                  </div>
+                </div>
+              {% endif %}
+              <small class="d-block text-end mt-3 mx-4">
+                <a href="#" class="link-danger link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">
+                  Delete All Events
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
+                    <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5M8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5m3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0"></path>
+                  </svg>
+                </a>
+              </small>
+            </div>
+        </div>
+      </div>
+    </main>
+    <footer class="py-3 my-4 fixed-bottom">
+      <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+        <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Home</a></li>
+        <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Features</a></li>
+        <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Pricing</a></li>
+        <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">FAQs</a></li>
+        <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">About</a></li>
+      </ul>
+      <p class="text-center text-body-secondary">© 2024 myBooker</p>
+    </footer>
+    </div>
+  </body>
+</html>

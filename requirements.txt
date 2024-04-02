@@ -1,0 +1,12 @@
+Flask==2.0.2
+Flask-Babel==2.0.0
+Flask-BabelEx==0.9.4
+Flask-Principal==0.4.0
+Flask-WTF==1.0.0
+urllib3==1.26.7
+Werkzeug==2.0.2
+python-dotenv
+requests
+oauthlib
+pyOpenSSL
+openai

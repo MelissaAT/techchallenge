@@ -9,7 +9,7 @@
 
 **Create .env file:**
 ```
-Ask Rafael for .env template.
+Add keys to the .env file.
 ```
 
 **Install required packages in pipenv virtual environment:**

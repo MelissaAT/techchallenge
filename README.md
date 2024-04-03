@@ -23,6 +23,5 @@ pipenv shell
 **Run app:**
 ```
 python3 app.py
-```
-
+``
 Application should be running in http://127.0.0.1:9000/

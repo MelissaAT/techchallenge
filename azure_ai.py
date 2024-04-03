@@ -27,7 +27,7 @@ client = AzureOpenAI(
 chat_completions_options = {
     "model": deployment_name,  # Use 'model' for non-Azure client
     "messages": [
-        {"role": "system", "content": "You are a chat assistant"},
+        #{"role": "system", "content": "You are a chat assistant"},
         {"role": "user", "content": "What is the total population of students in Puerto Rico?"}
     ],
     "extra_body": {
@@ -46,4 +46,8 @@ chat_completions_options = {
 
 # Get chat completions
 response = client.chat.completions.create(**chat_completions_options)
-print(response.model_dump_json(indent=2))
+#print(response.model_dump_json(indent=2))
+#print(type(response))
+#print(response.choices[0])
+
+print(response.choices[0].messages[1]['content'])

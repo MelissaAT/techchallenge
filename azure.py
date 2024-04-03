@@ -52,7 +52,7 @@ async def generate_openai_completion(user_query):
 
         # response.model_dump_json(indent=2)
 
-        return jsonify({"completion_response": response.choices[0].messages[1]['content']})
+        return ({"completion_response": response.choices[0].messages[1]['content']})
 
     except Exception as e:
         return jsonify({"error": str(e)}), 500

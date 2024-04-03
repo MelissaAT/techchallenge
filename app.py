@@ -29,7 +29,7 @@ async def handle_completion():
     user_query = request.form.get("user-query")
     if user_query:
         response = await generate_openai_completion(user_query)
-        return response
+        return render_template('v1/add_event.html', response = response["completion_response"])
     else:
         return jsonify({"error": "Missing user query"}), 400
 

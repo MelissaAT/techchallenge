@@ -10,3 +10,5 @@ requests
 oauthlib
 pyOpenSSL
 openai
+azure-identity
+flask[async]

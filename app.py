@@ -13,6 +13,8 @@ app.secret_key = app.config['APP_SECRET']
 @app.route("/", methods=['GET'])
 def start():
     print('welcome')
+    if 'response' in session:
+        session.pop('response')
     return render_template('v1/home.html')
 
 @app.route("/about", methods=['GET'])

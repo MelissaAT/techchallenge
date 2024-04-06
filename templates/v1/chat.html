@@ -15,9 +15,11 @@
                         <h2 class="text-center">Datos del Censo de Puerto Rico</h2>
                     </div>
                     <div class="card-body" style="height: 300px; overflow-y: auto;">
-                        <div class="bg-white text-dark p-2 mb-2 rounded">Bienvenido, ¿En qué puedo ayudarte?</div>
+                        
                          {% if response %}
                       <div class="bg-white text-dark p-2 mb-2 rounded">{{ response }}</div>
+                      {% else %}
+                      <div class="bg-white text-dark p-2 mb-2 rounded">Bienvenido, ¿En qué puedo ayudarte?</div>
                       {% endif %}
                   </div>
                     <div class="card-footer">

@@ -29,7 +29,8 @@ async def generate_openai_completion(user_query):
         chat_completions_options = {
             "model": deployment_name,
             "messages": [
-                {"role": "system", "content": "You are a assistant"},
+                {"role": "system", "content": "You are an assistant."},
+                {"role": "assistant", "content": "Respond in Spanish."},
                 {"role": "user", "content": user_query}
             ],
             "extra_body": {
